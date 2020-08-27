@@ -6,7 +6,7 @@
 #include "BankTransferSender.h"
 #include "CashSender.h"
 #include "CheckSender.h"
-
+#include "ISendPayment.h"
 /**
  * Abstract Class of Person
  */
@@ -15,7 +15,7 @@ public:
 
     // Constructors
     Person();
-    Person(const std::string &firstName, const std::string &lastName, int documentId);
+    Person(const std::string &firstName, const std::string &lastName, int documentId, IsendPayment* sendPayment);
     virtual ~Person() = default;
 
     // Gets and Sets
@@ -31,15 +31,15 @@ public:
 
     void setDocumentId(int documentId);
 
-    std::string processPaymentBankTransfer();
-    std::string processPaymentCash();
-    std::string processPaymentCheck();
+    std::string processPayment(IsendPayment* sendPayment);
 
     virtual std::string toString() const; // Virtual
 private:
     std::string firstName;
     std::string lastName;
     int documentId;
+    IsendPayment* sendPayment;
+
 };
 
 #endif //UNIT_TESTING_01_BASIC_PERSON_H

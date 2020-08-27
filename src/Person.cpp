@@ -6,9 +6,8 @@
 
 Person::Person() {}
 
-Person::Person(const std::string &firstName, const std::string &lastName, int documentId) : firstName(firstName),
-                                                                                            lastName(lastName),
-                                                                                            documentId(documentId) {}
+Person::Person(const std::string &firstName, const std::string &lastName, int documentId, IsendPayment* sendPayment)
+: firstName(firstName),lastName(lastName),documentId(documentId),sendPayment(sendPayment) {}
 
 const std::string &Person::getFirstName() const {
     return firstName;
@@ -37,18 +36,6 @@ void Person::setDocumentId(int documentId) {
 std::string Person::toString() const {
     return getFirstName() + " " + getLastName() + "\nDoc Id: " + std::to_string(getDocumentId());
 }
-
-std::string Person::processPaymentBankTransfer() {
-    BankTransferSender bankTransferSender;
-    return bankTransferSender.sendPayment();
-}
-
-std::string Person::processPaymentCash() {
-    CashSender cashSender;
-    return cashSender.sendPayment();
-}
-
-std::string Person::processPaymentCheck() {
-    CheckSender checkSender;
-    return checkSender.sendPayment();
+std::string Person:: processPayment(IsendPayment* sendPayment){
+    sendPayment->sendPayment();
 }
