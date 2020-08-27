@@ -31,7 +31,11 @@ public:
 
     void setDocumentId(int documentId);
 
-    std::string processPayment(IsendPayment* sendPayment);
+    IsendPayment* const getSendPayment() const;
+
+    void setSendPayment(IsendPayment* sendPayment);
+
+    std::string processPayment();
 
     virtual std::string toString() const; // Virtual
 private:

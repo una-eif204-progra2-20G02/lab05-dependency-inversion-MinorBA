@@ -9,9 +9,12 @@
 #include "gtest/gtest.h"
 
 TEST(PersonTestSuite, VerifyProcessPayment){
+    IsendPayment* bankTransferSenter = new BankTransferSender();
     Person person;
 
-    EXPECT_EQ(person.processPaymentBankTransfer(), "Sending the money by transference");
-    EXPECT_EQ(person.processPaymentCash(), "Give the money in the hands");
-    EXPECT_EQ(person.processPaymentCheck(), "Sending the check with the money");
+    person.setSendPayment(bankTransferSenter);
+
+    EXPECT_EQ(person.processPayment(), "Sending the money by transference" );
+ /*   EXPECT_EQ(person.processPayment(), "Give the money in the hands");
+    EXPECT_EQ(person.processPayment(), "Sending the check with the money");*/
 }
