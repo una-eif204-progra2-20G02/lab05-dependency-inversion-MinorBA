@@ -11,5 +11,5 @@
 class IsendPayment{
 public:
     virtual std::string sendPayment() const = 0;
-    virtual ~IsendPayment() = 0;
+    virtual ~IsendPayment();
 };

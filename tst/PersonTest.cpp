@@ -10,11 +10,11 @@
 
 TEST(PersonTestSuite, VerifyProcessPayment){
     IsendPayment* bankTransferSenter = new BankTransferSender();
+    IsendPayment* cashSender = new CashSender();
+    IsendPayment* checkSender = new CheckSender();
     Person person;
 
-    person.setSendPayment(bankTransferSenter);
-
-    EXPECT_EQ(person.processPayment(), "Sending the money by transference" );
- /*   EXPECT_EQ(person.processPayment(), "Give the money in the hands");
-    EXPECT_EQ(person.processPayment(), "Sending the check with the money");*/
+    EXPECT_EQ(person.processPayment(bankTransferSenter), "Sending the money by transference" );
+    EXPECT_EQ(person.processPayment(cashSender), "Give the money in the hands");
+    EXPECT_EQ(person.processPayment(checkSender), "Sending the check with the money");
 }

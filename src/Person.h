@@ -35,7 +35,7 @@ public:
 
     void setSendPayment(IsendPayment* sendPayment);
 
-    std::string processPayment();
+    std::string processPayment(IsendPayment* sendPayment);
 
     virtual std::string toString() const; // Virtual
 private:
