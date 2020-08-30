@@ -4,9 +4,9 @@
 
 #include "Person.h"
 
-Person::Person() {}
+Person::Person() { delete sendPayment;}
 
-Person::Person(const std::string &firstName, const std::string &lastName, int documentId, IsendPayment* sendPayment)
+Person::Person(const std::string &firstName, const std::string &lastName, int documentId, ISendPayment* sendPayment)
 : firstName(firstName),lastName(lastName),documentId(documentId),sendPayment(sendPayment) {}
 
 const std::string &Person::getFirstName() const {
@@ -33,15 +33,15 @@ void Person::setDocumentId(int documentId) {
     Person::documentId = documentId;
 }
 
-IsendPayment* const Person::getSendPayment() const {
+ISendPayment* const Person::getSendPayment() const {
     return sendPayment;
 }
 
-void Person::setSendPayment(IsendPayment* sendPayment) {
+void Person::setSendPayment(ISendPayment* sendPayment) {
     Person::sendPayment = sendPayment;
 }
-std::string Person:: processPayment(IsendPayment* sendPayment){
-    sendPayment->sendPayment();
+std::string Person:: processPayment(ISendPayment* sendPayment){
+    return sendPayment->sendPayment();
 }
 
 std::string Person::toString() const {

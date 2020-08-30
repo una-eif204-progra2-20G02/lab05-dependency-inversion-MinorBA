@@ -3,10 +3,8 @@
 
 #include <string>
 #include <ostream>
-#include "BankTransferSender.h"
-#include "CashSender.h"
-#include "CheckSender.h"
 #include "ISendPayment.h"
+
 /**
  * Abstract Class of Person
  */
@@ -15,7 +13,7 @@ public:
 
     // Constructors
     Person();
-    Person(const std::string &firstName, const std::string &lastName, int documentId, IsendPayment* sendPayment);
+    Person(const std::string &firstName, const std::string &lastName, int documentId, ISendPayment* sendPayment);
     virtual ~Person() = default;
 
     // Gets and Sets
@@ -31,18 +29,18 @@ public:
 
     void setDocumentId(int documentId);
 
-    IsendPayment* const getSendPayment() const;
+    ISendPayment* const getSendPayment() const;
 
-    void setSendPayment(IsendPayment* sendPayment);
+    void setSendPayment(ISendPayment* sendPayment);
 
-    std::string processPayment(IsendPayment* sendPayment);
+    std::string processPayment(ISendPayment* sendPayment);
 
     virtual std::string toString() const; // Virtual
 private:
     std::string firstName;
     std::string lastName;
     int documentId;
-    IsendPayment* sendPayment;
+    ISendPayment* sendPayment;
 
 };
 

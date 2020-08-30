@@ -8,9 +8,8 @@
 #include <string>
 #include "ISendPayment.h"
 
-class CheckSender: public IsendPayment{
-public:
-    std::string sendPayment() const override;
+class CheckSender: public ISendPayment{
+    std::string sendPayment()  override;
 };
 
 

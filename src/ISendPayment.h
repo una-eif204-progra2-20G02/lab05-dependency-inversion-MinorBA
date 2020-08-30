@@ -8,8 +8,8 @@
 #endif //MY_PROJECT_NAME_ISENDPAYMENT_H
 #include <string>
 
-class IsendPayment{
+class ISendPayment {
 public:
-    virtual std::string sendPayment() const = 0;
-    virtual ~IsendPayment();
+    virtual ~ISendPayment();
+    virtual std::string sendPayment() = 0;
 };

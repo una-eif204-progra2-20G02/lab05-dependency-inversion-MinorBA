@@ -4,4 +4,4 @@
 
 #include "ISendPayment.h"
 
-IsendPayment::~IsendPayment() {}
+ISendPayment::~ISendPayment() {}
